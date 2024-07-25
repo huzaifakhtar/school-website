@@ -8,7 +8,7 @@ const Header = () => {
         <div className="logo">
           <Link href="/">
             <a>
-              <img src="/logo.png" alt="Springdale Public School" />
+              <img src="/logo.svg" alt="Springdale Public School" />
             </a>
           </Link>
         </div>

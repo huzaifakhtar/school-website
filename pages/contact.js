@@ -30,7 +30,7 @@ const Contact = () => {
       <h2>Google Maps Integration</h2>
       <iframe
         src="https://www.google.com/maps/embed?..."
-        width="100%"
+        width="25%"
         height="300"
         frameborder="0"
         allowfullscreen
