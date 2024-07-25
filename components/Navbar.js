@@ -38,172 +38,60 @@ const Navbar = () => {
 
   const usePathName = usePathname();
   return (
-    // <nav className="flex justify-between items-center py-4">
-    //   <Link href="/">
-         
-    //       <img src="/logo.png" alt="Springdale Public School" />
-         
-    //   </Link>
-    //   <ul className="flex justify-between items-center">
-    //     <li>
-    //       <Link href="/about">
-    //          About Us 
-    //       </Link>
-    //     </li>
-    //     <li>
-    //       <Link href="/academics">
-    //          Academics 
-    //       </Link>
-    //     </li>
-    //     <li>
-    //       <Link href="/admissions">
-    //          Admissions 
-    //       </Link>
-    //     </li>
-    //     <li>
-    //       <Link href="/faculty">
-    //          Faculty 
-    //       </Link>
-    //     </li>
-    //     <li>
-    //       <Link href="/students">
-    //          Students 
-    //       </Link>
-    //     </li>
-    //     <li>
-    //       <Link href="/gallery">
-    //          Gallery 
-    //       </Link>
-    //     </li>
-    //     <li>
-    //       <Link href="/contact">
-    //          Contact Us 
-    //       </Link>
-    //     </li>
-    //   </ul>
-    // </nav>
     <header
-    className={`header left-0 top-0 z-40 flex w-full items-center ${
-      sticky
-        ? "dark:bg-gray-dark dark:shadow-sticky-dark fixed z-[9999] bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm transition"
-        : "absolute bg-transparent"
-    }`}
-  >
-    <div className="container">
-      <div className="relative -mx-4 flex items-center justify-between">
-        <div className="w-60 max-w-full px-4 xl:mr-12">
-          <Link
-            href="/"
-            className={`header-logo block w-full ${
-              sticky ? "py-5 lg:py-2" : "py-8"
-            } `}
-          >
-            <Image
-              src="/images/logo/logo-2.svg"
-              alt="logo"
-              width={140}
-              height={30}
-              className="w-full dark:hidden"
-            />
-            <Image
-              src="/logo.svg"
-              alt="logo"
-              width={140}
-              height={30}
-              className="hidden w-full dark:block"
-            />
-          </Link>
-        </div>
-        <div className="flex w-full items-center justify-between px-4">
-            <button
-              onClick={navbarToggleHandler}
-              id="navbarToggler"
-              aria-label="Mobile Menu"
-              className="absolute right-4 top-1/2 block translate-y-[-50%] rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
-            >
-              <span
-                className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
-                  navbarOpen ? " top-[7px] rotate-45" : " "
-                }`}
-              />
-              <span
-                className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
-                  navbarOpen ? "opacity-0 " : " "
-                }`}
-              />
-              <span
-                className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
-                  navbarOpen ? " top-[-8px] -rotate-45" : " "
-                }`}
-              />
-            </button>
-            <nav
-              id="navbarCollapse"
-              className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-white px-6 py-4 duration-300 dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
-                navbarOpen
-                  ? "visibility top-full opacity-100"
-                  : "invisible top-[120%] opacity-0"
-              }`}
-            >
-              <ul className="block lg:flex lg:space-x-12">
-                {menuData.map((menuItem, index) => (
-                  <li key={index} className="group relative">
-                    {menuItem.path ? (
-                      <Link
-                        href={menuItem.path}
-                        className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
-                          usePathName === menuItem.path
-                            ? "text-primary dark:text-white"
-                            : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
-                        }`}
-                      >
-                        {menuItem.title}
-                      </Link>
-                    ) : (
-                      <>
-                        <p
-                          onClick={() => handleSubmenu(index)}
-                          className="flex cursor-pointer items-center justify-between py-2 text-base text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6"
-                        >
-                          {menuItem.title}
-                          <span className="pl-3">
-                            <svg width="25" height="24" viewBox="0 0 25 24">
-                              <path
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                                d="M6.29289 8.8427C6.68342 8.45217 7.31658 8.45217 7.70711 8.8427L12 13.1356L16.2929 8.8427C16.6834 8.45217 17.3166 8.45217 17.7071 8.8427C18.0976 9.23322 18.0976 9.86639 17.7071 10.2569L12 15.964L6.29289 10.2569C5.90237 9.86639 5.90237 9.23322 6.29289 8.8427Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </p>
-                        <div
-                          className={`submenu relative left-0 top-full rounded-sm bg-white transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full ${
-                            openIndex === index ? "block" : "hidden"
-                          }`}
-                        >
-                          {menuItem.submenu.map((submenuItem, index) => (
-                            <Link
-                              href={submenuItem.path}
-                              key={index}
-                              className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3"
-                            >
-                              {submenuItem.title}
-                            </Link>
-                          ))}
-                        </div>
-                      </>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          
+      className={`header left-0 top-0 z-40 flex w-full items-center ${sticky
+          ? "dark:bg-gray-dark dark:shadow-sticky-dark fixed z-[9999] bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm transition"
+          : "absolute bg-black"
+        }`}
+    >
 
+
+      <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+          <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+            <Image src="/logo.svg" className="h-8" alt="Flowbite Logo" width={150} height={50}/>
+          </Link>
+          <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get started</button>
+            <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+              <span className="sr-only">Open main menu</span>
+              <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+              </svg>
+            </button>
+          </div>
+          <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+            <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+              <li>
+                <Link href="/about" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">About Us</Link>
+              </li>
+              <li>
+                <Link href="/academics" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Academics</Link>
+              </li>
+              <li>
+                <Link href="/admission" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Admissions</Link>
+              </li>
+              <li>
+                <Link href="/faculty" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Faculty</Link>
+              </li>
+              <li>
+                <Link href="/student" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Students</Link>
+              </li>
+              <li>
+                <Link href="/gallery" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Gallery</Link>
+              </li>
+              <li>
+                <Link href="/home" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Home</Link>
+              </li>
+              <li>
+                <Link href="/contact" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact Us</Link>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </div>
-  </header>
+      </nav>
+
+    </header>
   );
 };
 
