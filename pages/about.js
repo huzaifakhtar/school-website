@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const About = () => {
@@ -27,9 +28,16 @@ const About = () => {
       </section>
       
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">Principal's Message</h2>
         <div className="bg-white p-6 rounded-lg shadow-md">
-          <p className="text-lg leading-relaxed">
+        <Image 
+          src='/male.png'
+          alt='principal sir'
+            width={150} 
+            height={150} 
+            className="rounded-full mb-4"
+          />
+        <h2 className="text-2xl font-semibold mb-2">Principal's Message</h2>
+          <p className="text-lg leading-relaxed ">
             At Springdale, we believe in nurturing the potential of every student and guiding them towards a successful future.
           </p>
         </div>
@@ -39,10 +47,33 @@ const About = () => {
         <h2 className="text-2xl font-semibold mb-2">Infrastructure and Facilities</h2>
         <div className="bg-white p-6 rounded-lg shadow-md">
           <ul className="list-disc list-inside text-lg leading-relaxed">
-            <li>State-of-the-art science and computer labs</li>
-            <li>Spacious and well-equipped classrooms</li>
-            <li>Library with a vast collection of books and digital resources</li>
-            <li>Sports facilities including a playground, gymnasium, and swimming pool</li>
+          <section className="mb-8 p-6 bg-gray-100 rounded-lg shadow-md">
+            <div className="flex items-center space-x-4 mb-4">
+            <Image src='/lab.png' alt='science lab' width={710} height={710} className="rounded-lg" />
+            <Image src='/comp_lab-820x400.png' alt='computer lab' width={820} height={820} className="rounded-lg" />
+            </div>
+             <li className="text-lg font-medium text-gray-700">State-of-the-art science and computer labs</li>
+          </section>
+          <section className="mb-8 p-6 bg-gray-100 rounded-lg shadow-md">
+            <div className="flex items-center space-x-4 mb-4">
+            <Image src='/classroom.png' alt='science lab' width={710} height={710} className="rounded-lg" />
+            </div>
+            <li className="text-lg font-medium text-gray-700">Spacious and well-equipped classrooms</li>
+          </section>
+          <section className="mb-8 p-6 bg-gray-100 rounded-lg shadow-md">
+            <div className="flex items-center space-x-4 mb-4">
+            <Image src='/library.png' alt='science lab' width={710} height={710} className="rounded-lg" />
+            </div>
+            <li className="text-lg font-medium text-gray-700">Library with a vast collection of books and digital resources</li>
+          </section>
+          <section className="mb-8 p-6 bg-gray-100 rounded-lg shadow-md">
+            <div className="flex items-center space-x-4 mb-4">
+            <Image src='/gym.png' alt='gymnasium' width={300} height={300} className="rounded-lg" />
+            <Image src='/playground.png' alt='playground' width={300} height={300} className="rounded-lg" />
+            <Image src='/pool.png' alt='pool' width={300} height={300} className="rounded-lg" />
+            </div>
+            <li className="text-lg font-medium text-gray-700">Sports facilities including a playground, gymnasium, and swimming pool</li>
+          </section>
           </ul>
         </div>
       </section>

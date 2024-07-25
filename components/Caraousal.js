@@ -4,9 +4,9 @@ import Image from 'next/image';
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [
-    { src: '/photo-1665553365602-b2fb8e5d1707.webp', alt: 'Annual Sports Day' },
-    { src: '/photo-1625726411847-8cbb60cc71e6.webp', alt: 'Science Exhibition' },
-    { src: '/photo-1414694762283-acccc27bca85.webp', alt: 'Cultural Fest' },
+    { src: '/sportsday.png', alt: 'Annual Sports Day' },
+    { src: '/ScienceExhibition.png', alt: 'Science Exhibition' },
+    { src: '/culturalfest.png', alt: 'Cultural Fest' },
   ];
 
   const handlePrev = () => {

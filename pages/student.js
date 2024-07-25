@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const Students = () => {
@@ -34,16 +35,34 @@ const Students = () => {
         <h2 className="text-2xl font-semibold mb-4">Student Council</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-white p-6 rounded-lg shadow-md">
+          <Image
+            src='/studentfemale.png'
+            alt="Lisa Wong" 
+            width={150} 
+            height={150} 
+            className="rounded-full mb-4" />
             <h3 className="text-xl font-semibold mb-2">President</h3>
             <p className="text-lg text-gray-700">Amy Parker</p>
             <p className="text-lg text-gray-600">Grade 12</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
+          <Image
+            src='/studentmale.png'
+            alt="Lisa Wong" 
+            width={150} 
+            height={150} 
+            className="rounded-full mb-4" />
             <h3 className="text-xl font-semibold mb-2">Vice President</h3>
             <p className="text-lg text-gray-700">Rajiv Mehta</p>
             <p className="text-lg text-gray-600">Grade 11</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
+          <Image
+            src='/studentfemale.png'
+            alt="Lisa Wong" 
+            width={150} 
+            height={150} 
+            className="rounded-full mb-4" />
             <h3 className="text-xl font-semibold mb-2">Secretary</h3>
             <p className="text-lg text-gray-700">Lisa Wong</p>
             <p className="text-lg text-gray-600">Grade 10</p>
